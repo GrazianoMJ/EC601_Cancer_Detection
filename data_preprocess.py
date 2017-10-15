@@ -1,3 +1,5 @@
+import pandas
+
 def csv_decoder(filename):
 
     """
@@ -11,9 +13,12 @@ def csv_decoder(filename):
     return output_list
 
 def main():
-    variants = csv_decoder("training_variants.txt")
-    for row in variants:
-        print(row)
+#    variants = csv_decoder("training_variants.txt")
+#    for row in variants:
+#        print(row)
+    new_variants = pandas.read_csv("./training_variants.txt")
+    with pandas.option_context('display.max_rows', None, 'display.max_columns', 5):
+        print(new_variants)
     
 if __name__=="__main__":
     main()
