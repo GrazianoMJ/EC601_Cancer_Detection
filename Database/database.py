@@ -2,19 +2,20 @@
 #using mariaDB
 #require pymysql package
 #written by Jianqing Ye
-
+import pymysql
 from DB import create_table,add_data,look_up
-create_table.create_table()
+hostIP ='192.168.1.231'
+create_table.create_table(hostIP)
 
 fname = input('Enter file name: ')
 if (len(fname) < 1): fname = 'training_variants.txt'
 
-add_data.add_data(fname)
+add_data.add_data(fname,hostIP)
+lookup = look_up.look_up
+lookup.lookup_id(1,hostIP)
 
-look_up.look_up.lookup_id(1)
+lookup.lookup_Gene('CBL',hostIP)
 
-look_up.look_up.lookup_Gene('CBL')
+lookup.lookup_Variation('V430M',hostIP)
 
-look_up.look_up.lookup_Variation('V430M')
-
-look_up.look_up.lookup_Class(4)
+lookup.lookup_Class(4,hostIP)
