@@ -22,7 +22,9 @@ class look_up():
         sql = '''SELECT cancer_id,Gene,Variation,Class FROM cancer_detection.cancer WHERE Gene = %s'''
         cur.execute(sql,(Gene,))
         result = cur.fetchall()
-        print('Gene =',Gene,'\n','result = \n',result)
+        print('Gene =',Gene,'\n','result =')
+        for item in result:
+            print(item)
         conn.close()
 
     def lookup_Variation(Variation):
@@ -32,7 +34,9 @@ class look_up():
         sql = '''SELECT cancer_id,Gene,Variation,Class FROM cancer_detection.cancer WHERE Variation = %s'''
         cur.execute(sql,(Variation,))
         result = cur.fetchall()
-        print('Variation =',Variation,'\n','result = \n',result)
+        print('Variation =',Variation,'\n','result =')
+        for item in result:
+            print(item)
         conn.close()
 
     def lookup_Class(Class):
@@ -42,5 +46,7 @@ class look_up():
         sql = '''SELECT cancer_id,Gene,Variation,Class FROM cancer_detection.cancer WHERE Class = %s'''
         cur.execute(sql,(Class,))
         result = cur.fetchall()
-        print('class =',Class,'\n','result = \n',result)
+        print('class =',Class,'\n','result =')
+        for item in result:
+            print(item)
         conn.close()

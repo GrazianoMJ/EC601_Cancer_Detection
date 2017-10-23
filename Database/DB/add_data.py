@@ -19,7 +19,6 @@ def add_data(fname):
             Gene = r[1]
             Variation = r[2]
             Class = r[3]
-            print(Gene)
             sql = '''INSERT INTO cancer(cancer_id,Gene,Variation,Class) VALUES(%s,%s,%s,%s)'''
             cur.execute(sql,(cancer_id,Gene,Variation,Class))
             count+= 1

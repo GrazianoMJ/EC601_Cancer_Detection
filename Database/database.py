@@ -17,4 +17,4 @@ look_up.look_up.lookup_Gene('CBL')
 
 look_up.look_up.lookup_Variation('V430M')
 
-look_up.look_up.lookup_Class(2)
+look_up.look_up.lookup_Class(4)
