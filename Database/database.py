@@ -4,7 +4,7 @@
 #written by Jianqing Ye
 import pymysql
 from DB import create_table,add_data,look_up
-hostIP ='192.168.1.231'
+hostIP ='localhost'
 create_table.create_table(hostIP)
 
 fname = input('Enter file name: ')
