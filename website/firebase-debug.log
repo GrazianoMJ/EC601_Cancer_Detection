@@ -1,0 +1,36 @@
+[debug] [2017-10-24T03:36:37.543Z] ----------------------------------------------------------------------
+[debug] [2017-10-24T03:36:37.546Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2017-10-24T03:36:37.546Z] CLI Version:   3.13.1
+[debug] [2017-10-24T03:36:37.546Z] Platform:      darwin
+[debug] [2017-10-24T03:36:37.546Z] Node Version:  v6.11.4
+[debug] [2017-10-24T03:36:37.547Z] Time:          Mon Oct 23 2017 23:36:37 GMT-0400 (EDT)
+[debug] [2017-10-24T03:36:37.547Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-10-24T03:36:37.559Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-10-24T03:36:37.560Z] > authorizing via signed-in user
+[debug] [2017-10-24T03:36:37.562Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-10-24T03:36:37.562Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/4B6BGpnSuMMnQkeF08ttbKJ3Ml8rfIdrNZ0rpDTZSyc',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Mon Oct 23 2017 23:36:37 GMT-0400 (EDT)
+[debug] [2017-10-24T03:36:37.814Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-24T03:36:37.840Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/cancer-detection-76db3  
+ Mon Oct 23 2017 23:36:37 GMT-0400 (EDT)
+[debug] [2017-10-24T03:36:38.352Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-24T03:36:38.353Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/cancer-detection-76db3/tokens  
+ Mon Oct 23 2017 23:36:38 GMT-0400 (EDT)
+[debug] [2017-10-24T03:36:38.829Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/Iris/Desktop/untitled'...
+[info] 
+[debug] [2017-10-24T03:36:38.833Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/cancer-detection-76db3  
+ Mon Oct 23 2017 23:36:38 GMT-0400 (EDT)
+[debug] [2017-10-24T03:36:39.259Z] <<< HTTP RESPONSE 200
+[debug] [2017-10-24T03:36:39.259Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/568555358362/clients/_:getWebAppConfig  
+ Mon Oct 23 2017 23:36:39 GMT-0400 (EDT)
+[debug] [2017-10-24T03:36:39.948Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: ./
+[info] ✔  hosting: Local server: http://localhost:5000
+
