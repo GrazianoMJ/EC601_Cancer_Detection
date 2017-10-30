@@ -1,3 +1,4 @@
+import re
 import numpy
 import pandas
 
@@ -7,6 +8,7 @@ VAR_FILES = "variants"
 SOL_FILES = "solutions"
 TXT_FILES = "text"
 FILE_PREFIX = "test_"
+TXT_HEADS = ["ID", "Text"]
 
 def extract_data(designation, suffix):
     file_name = DIRECT+FILE_PREFIX+designation+suffix
@@ -21,22 +23,12 @@ def main():
     # Place all data from files into DataFrames
     var_df = extract_data(VAR_FILES, ".csv")
     sol_df = extract_data(SOL_FILES, ".csv")
+    txt_df = extract_data(TXT_FILES, ".txt")
     
     # Add a classification column to the end of var_df
     var_df["Class"] = 0
 
     # Go through sol_df and update the class numbers in var_df
-#    print(sol_df.iloc[1])
-#    temp1 = sol_df.iloc[1]["class1":].tolist()
-#    print(temp1)
-#    temp2 = var_df[var_df["ID"] == sol_df.iloc[1]["ID"]]
-#    print(temp2)
-#    gene_class = temp1.index(1) + 1
-#    print(gene_class)
-#    temp3 = temp2.index
-#    print(temp3)
-#    var_df.loc[temp3, ["Class"]] = gene_class
-#    print(var_df[var_df["ID"] == sol_df.iloc[1]["ID"]])
     for i, data in sol_df.iterrows():
         class_list = data["class1":].tolist()
         gene_class = class_list.index(1) + 1
@@ -45,11 +37,21 @@ def main():
 
     # Update var_df so that it only contains rows with class designations
     var_df = var_df[var_df["Class"] != 0]
-    
-    with pandas.option_context('display.max_rows', None,
-                               'display.max_columns', None
-                              ):
-        print(var_df)
 
+    # Update txt_df so that it only contains rows from var_df. 
+    txt_df = txt_df[txt_df["ID"].isin(var_df["ID"])]
+
+    # Place newly created variants and text dataframes into new documents
+    var_df.to_csv(TARGET + FILE_PREFIX + VAR_FILES + ".csv", index=False)
+    with open(TARGET+FILE_PREFIX+TXT_FILES+".txt", "w") as file:
+        file.write(TXT_HEADS[0]+r"||"+TXT_HEADS[1]+"\n")
+        for i, data in txt_df.iterrows():
+            text2write = (str(txt_df.get_value(i, TXT_HEADS[0])) + 
+                          r"||" +
+                          txt_df.get_value(i, TXT_HEADS[1]) +
+                          "\n"
+            )
+            file.write(text2write)
+    
 if __name__=="__main__":
     main()
