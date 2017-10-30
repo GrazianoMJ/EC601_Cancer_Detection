@@ -41,6 +41,12 @@ def main():
     # Update txt_df so that it only contains rows from var_df. 
     txt_df = txt_df[txt_df["ID"].isin(var_df["ID"])]
 
+    # Update the ID values in var_df & txt_df so they are sequential.
+    rows, columns = var_df.shape
+    for i in range(rows):
+        var_df.iloc[i, 0] = i
+        txt_df.iloc[i, 0] = i
+
     # Place newly created variants and text dataframes into new documents
     var_df.to_csv(TARGET + FILE_PREFIX + VAR_FILES + ".csv", index=False)
     with open(TARGET+FILE_PREFIX+TXT_FILES+".txt", "w") as file:
