@@ -7,7 +7,7 @@ import pymysql
 
 
 def create_table(hostIP):
-    conn = pymysql.connect(host =hostIP,user ='root',password ='EC601',database ='cancer_detection',charset ='utf8mb4')
+    conn = pymysql.connect(host =hostIP,user ='root',password ='cancerdetection',database ='cancerdetection',charset ='utf8mb4')
     cur = conn.cursor()
     cur.execute('''
         DROP TABLE IF EXISTS cancer;
