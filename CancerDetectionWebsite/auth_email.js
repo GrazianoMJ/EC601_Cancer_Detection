@@ -26,8 +26,25 @@ function toggleSignIn() {
       // [START_EXCLUDE]
       if (errorCode === 'auth/wrong-password') {
       alert('Wrong password.');
+      document.getElementById('quickstart-sign-in').style.visibility = 'visible';
+      document.getElementById('quickstart-sign-up').style.visibility = 'visible';
+      document.getElementById('email').style.visibility = 'visible';
+      document.getElementById('password').style.visibility = 'visible';
+      document.getElementById('signintext').style.visibility = 'visible';
+      document.getElementById('signinhead').style.visibility = 'visible';
+      document.getElementById('Search').style.display = 'none';
+      document.getElementById('Searchtxt').style.display = 'none';
       } else {
       alert(errorMessage);
+      document.getElementById('quickstart-sign-in').style.visibility = 'visible';
+      document.getElementById('quickstart-sign-up').style.visibility = 'visible';
+      document.getElementById('email').style.visibility = 'visible';
+      document.getElementById('password').style.visibility = 'visible';
+      document.getElementById('signintext').style.visibility = 'visible';
+      document.getElementById('signinhead').style.visibility = 'visible';
+      document.getElementById('Search').style.display = 'none';
+      document.getElementById('Searchtxt').style.display = 'none';
+
       }
       console.log(error);
       document.getElementById('quickstart-sign-in').disabled = false;
@@ -35,7 +52,15 @@ function toggleSignIn() {
       });
 // [END authwithemail]
     }
-    document.getElementById('quickstart-sign-in').disabled = true;
+    document.getElementById('quickstart-sign-in').style.visibility = 'hidden';
+    document.getElementById('quickstart-sign-up').style.visibility = 'hidden';
+    document.getElementById('email').style.visibility = 'hidden';
+    document.getElementById('password').style.visibility = 'hidden';
+    document.getElementById('signintext').style.visibility = 'hidden';
+    document.getElementById('signinhead').style.visibility = 'hidden';
+    document.getElementById('Search').style.display = 'block';
+    document.getElementById('Searchtxt').style.display = 'block';
+
 }
 /**
  * Handles the sign up button press.
@@ -79,12 +104,11 @@ function initApp() {
     // [START authstatelistener]
     firebase.auth().onAuthStateChanged(function(user) {
                                        // [START_EXCLUDE silent]
-       document.getElementById('quickstart-verify-email').disabled = true;
+       //document.getElementById('quickstart-verify-email').disabled = true;
        // [END_EXCLUDE]
        if (user) {
+       //document.getElementById('quickstart-sign-in').style.visibility = 'hidden';
        
-       window.location = 'search.html';
-       document.getElementById('quickstart-sign-in').disabled = true;
        
        // [START_EXCLUDE]
        document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';

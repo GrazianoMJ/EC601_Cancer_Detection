@@ -16,7 +16,7 @@
 
 html, body {
     font-family: 'Roboto', 'Helvetica', sans-serif;
-    background: url("tweet.jpg");
+    background: url("DNA.jpg");
 
 }
 
@@ -56,7 +56,7 @@ code {
     word-break: break-all;
 }
 h3 {
-    background: url("DNA.jpg") repeat;
+    background: url("DNA.jpg") no-repeat;
     background-size: 60px;
     padding-left: 70px;
     color: white;
@@ -76,4 +76,15 @@ h3 {
 }
 #sign-in-card {
     z-index: 2;
+}
+#email {
+    margin-left: -15px;
+}
+#Search {
+    display: none;
+
+}
+#Searchtxt {
+    display: none;
+    
 }
