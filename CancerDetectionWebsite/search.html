@@ -1,0 +1,59 @@
+
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cancer Detection </title>
+
+        <!-- Material Design Theming -->
+        <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+        <link rel="stylesheet" href="main.css">
+
+        <!-- Import and configure the Firebase SDK -->
+        <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
+        <!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+        <script src="/__/firebase/4.0.0/firebase-app.js"></script>
+        <script src="/__/firebase/4.0.0/firebase-auth.js"></script>
+        <script src="/__/firebase/init.js"></script>
+        <script src="auth_google.js"></script>
+        <script src="auth_email.js"></script>
+           </head>
+    <body>
+        <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            
+            <!-- Header section containing title -->
+            <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
+                <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+                    <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--8-col-desktop">
+                        <a href="/"><h3>Cancer Detection</h3></a>
+                    </div>
+                </div>
+            </header>
+            
+            <main class="mdl-layout__content mdl-color--grey-100">
+                <a href="index.html">
+               <button id="Search" name="Search">Search</button>
+                </a>
+
+             
+            </main>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyB63PjqQTlT4N_himY4-_TfGbJYS1B2BnY",
+                authDomain: "cancer-detection-76db3.firebaseapp.com",
+                databaseURL: "https://cancer-detection-76db3.firebaseio.com",
+                projectId: "cancer-detection-76db3",
+                storageBucket: "cancer-detection-76db3.appspot.com",
+                messagingSenderId: "568555358362"
+            };
+        firebase.initializeApp(config);
+            </script>
+
+    </body>
+</html>
