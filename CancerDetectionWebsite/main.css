@@ -77,14 +77,5 @@ h3 {
 #sign-in-card {
     z-index: 2;
 }
-#email {
-    margin-left: -15px;
-}
-#Search {
-    display: none;
 
-}
-#Searchtxt {
-    display: none;
-    
-}
+

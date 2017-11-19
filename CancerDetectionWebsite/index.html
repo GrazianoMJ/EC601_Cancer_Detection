@@ -1,16 +1,5 @@
 
-<!--
- Copyright (c) 2016 Google Inc.
- Licensed under the Apache License, Version 2.0 (the "License");
- you may not use this file except in compliance with the License.
- You may obtain a copy of the License at
- http://www.apache.org/licenses/LICENSE-2.0
- Unless required by applicable law or agreed to in writing, software
- distributed under the License is distributed on an "AS IS" BASIS,
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- See the License for the specific language governing permissions and
- limitations under the License.
- -->
+
 <html>
     <head>
         <meta charset=utf-8 />
@@ -27,11 +16,10 @@
         <!-- Import and configure the Firebase SDK -->
         <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
         <!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
-        <script src="/__/firebase/4.0.0/firebase-app.js"></script>
+       <!-- <script src="/__/firebase/4.0.0/firebase-app.js"></script>
         <script src="/__/firebase/4.0.0/firebase-auth.js"></script>
-        <script src="/__/firebase/init.js"></script>
-        <script src="auth_google.js"></script>
-        <script src="auth_email.js"></script>
+        <script src="/__/firebase/init.js"></script> -->
+       <!-- <script src="auth_email.js"></script> -->
            </head>
     <body>
         <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -50,13 +38,13 @@
                     <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
                         <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
                             <h2 id=signinhead class="mdl-card__title-text">Sign in with Email</h2>
-                            <h2 id=Searchtxt class="mdl-card__title-text">Search the classification database</h2>
+                           <!-- <h2 id=Searchtxt class="mdl-card__title-text">Search the classification database</h2> -->
                         </div>
 
                         <div class="mdl-card__supporting-text mdl-color-text--grey-600">
                             <p id=signintext>Enter an email and password below and either sign in to an existing account or sign up</p>
-                            <button class="mdl-button mdl-js-button mdl-button--raised" id="Search" name="Search">Search</button>
-                            &nbsp;&nbsp;&nbsp;
+                             <!--<button class="mdl-button mdl-js-button mdl-button-raised" id="Search" name="Search">Search</button>
+                            &nbsp;&nbsp;&nbsp; -->
                             <input class="mdl-textfield__input" style="display:inline;width:auto;" type="text" id="email" name="email" placeholder="Email"/>
                             &nbsp;&nbsp;&nbsp;
                             <input class="mdl-textfield__input" style="display:inline;width:auto;" type="password" id="password" name="password" placeholder="Password"/>
@@ -65,6 +53,9 @@
                             &nbsp;&nbsp;&nbsp;
                             <button class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-up" name="signup">Sign Up</button>
                             <br/><br/>
+                            <button class="mdl-button mdl-js-button mdl-button--raised" <a href="#" onclick="signIn();">
+                                <i class="fa fa-google"></i> Google</a>
+                            </button>
 
                         </div>
                     </div>
@@ -73,19 +64,88 @@
                 <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
             </main>
         </div>
-        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-        <script>
-            // Initialize Firebase
-            var config = {
-                apiKey: "AIzaSyB63PjqQTlT4N_himY4-_TfGbJYS1B2BnY",
-                authDomain: "cancer-detection-76db3.firebaseapp.com",
-                databaseURL: "https://cancer-detection-76db3.firebaseio.com",
-                projectId: "cancer-detection-76db3",
-                storageBucket: "cancer-detection-76db3.appspot.com",
-                messagingSenderId: "568555358362"
-            };
-        firebase.initializeApp(config);
-            </script>
+
+
+
+
+<!-- Javascript
+<script src="assets/js/jquery-1.11.1.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.backstretch.min.js"></script>
+<script src="assets/js/scripts.js"></script> -->
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB63PjqQTlT4N_himY4-_TfGbJYS1B2BnY",
+        authDomain: "cancer-detection-76db3.firebaseapp.com",
+        databaseURL: "https://cancer-detection-76db3.firebaseio.com",
+        projectId: "cancer-detection-76db3",
+        storageBucket: "cancer-detection-76db3.appspot.com",
+        messagingSenderId: "568555358362"
+    };
+firebase.initializeApp(config);
+    </script>
+<script>
+    var provider = new firebase.auth.GoogleAuthProvider();
+    function signIn() {
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+         // This gives you a Google Access Token. You can use it to access the Google API.
+         //var token = result.credential.accessToken;
+         // The signed-in user info.
+        // user = result.user;
+         //alert(JSON.stringify(user));
+         // $("#bnlah").html();
+         //   window.user = user;
+         showWelcomeContainer();
+         // ...
+         }).catch(function(error) {
+                  // Handle Errors here.
+                  var errorCode = error.code;
+                  var errorMessage = error.message;
+                  // The email of the user's account used.
+                  var email = error.email;
+                  //$("#bnlah").html(JSON.stringify(error));
+                  // The firebase.auth.AuthCredential type that was used.
+                  var credential = error.credential;
+                  // ...
+                  });
+    }
+</script>
+
+
+<script src="login.js"></script> 
+
+<script>
+    //Handle Account Status
+    firebase.auth().onAuthStateChanged(user => {
+   if(user) {
+   window.location = 'https://cancerdetection.000webhostapp.com/search1.php'//'search1.html'; 
+   }
+   });
+    </script>
+
+<script>
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+    .then(function() {
+          // Existing and future Auth states are now persisted in the current
+          // session only. Closing the winwdow would clear any existing state even
+          // if a user forgets to sign out.
+          // ...
+          // New sign-in will be persisted with session persistence.
+          return firebase.auth().signInWithEmailAndPassword(email, password);
+          })
+          .catch(function(error) {
+                 // Handle Errors here.
+                 var errorCode = error.code;
+                 var errorMessage = error.message;
+                 });
+    </script>
+
+
+
+
 
     </body>
 </html>
