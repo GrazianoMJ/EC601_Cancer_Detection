@@ -1,3 +1,13 @@
+""" CreateThumbnail.py
+    Author: Mike Graziano
+    Code used to practice the communication between AWS services:
+    * S3
+    * Lambda
+    This code can be run and understood in more detail through reading
+    the tutorial found below:
+    * docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html
+"""
+
 import boto3
 import os
 import sys

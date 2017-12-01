@@ -1,3 +1,13 @@
+""" collation.py
+    Author: Mike Graziano
+    This code is used to extract only clinical documents from the 
+    test_text.txt file that has a classification.
+    This is done due to the fact that the original data had false 
+    information for the purposes of the contest. The solution was
+    provided at a later date and we would like to use these exact 
+    values in our project.
+"""
+
 import re
 import numpy
 import pandas
@@ -11,6 +21,12 @@ FILE_PREFIX = "test_"
 TXT_HEADS = ["ID", "Text"]
 
 def extract_data(designation, suffix):
+
+    """ extract_data: Accesses the target text file in the computer's
+        file system and imports the data into a pandas Dataframe using
+        the "read_csv" command.
+    """
+
     file_name = DIRECT+FILE_PREFIX+designation+suffix
     if suffix == ".csv":
         return pandas.read_csv(file_name)
