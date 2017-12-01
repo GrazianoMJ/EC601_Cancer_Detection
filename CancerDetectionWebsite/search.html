@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title>Database Search</title>
+  <style type = "text/css">
+
+  table {
+    background-color: #FCF
+  }
+
+  th {
+    width: 150px;
+    text-align: left;
+  }
+  </style>
+
+</head>
+<body>
+<h1>Database Search</h1>
+<form method = "post" action ="search1.php">
+<input type ="hidden" name ="submitted" value ="true"/>
+<label>Search Category:
+<select name = "category">
+    <option value = "cancer_id">ID</option>
+    <option value = "Gene">Gene</option>
+    <option value = "Variation">Variation</option>
+    <option value = "Class">Class</option>
+
+</select>
+
+<label>Search Criteria: <input type = "text" name = "criteria" /></label>
+<input type ="submit"/>
+
+
+</form>
+
+
+</body>
+</html>

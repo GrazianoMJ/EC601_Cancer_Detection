@@ -1,5 +1,10 @@
 # EC601_Cancer_Detection
 
+Jingjun Wang:
+For the machine learning part: 
+- The preprocess file is to use nltk(natural language toolkit) to process the original text file, which is also known as clinical data, to get a cleaner version of text file. The object is to get exclude the influence of those unrelated words, such as "a, the", those common english words.
+- The run_modle file is to fit our data into sikit learn model, and test the accuracy of different model.
+
 ## Text_Processing Folder Description:
 This folder contains folders devoted to the preprocessing of our Kaggle provided data. Two sets of data were provided (training and test) and these two sets are broken down further into text files and variants.
 - Text contains all of our clinical documents in a delimitted file (the delimitting character is "||"). Each line of the file is a ID number and the full text of the clinical document.
@@ -15,3 +20,4 @@ This folder contains all the work associated with the automation of the AWS Serv
 - A test code used to determine if our communication between our S3, Lambda, SQS Queue and EC2 Instance was working correctly.
 
 Currently work is being done to complete the communication between our EC2 Instance and our RDS Database (see the Database folder for code).
+
