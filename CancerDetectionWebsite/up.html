@@ -1,0 +1,165 @@
+<html>
+	<head>
+		<meta charset= "utf-8">
+		<title> Cancer Detection</title>
+		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:100,300'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+    <link href="css/agency.min.css" rel="stylesheet">
+
+  
+   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    
+		<style media="screen">
+			body {
+			
+				display: flex;
+				min-height: 100vh;
+				width: 100%
+				padding: 0;
+				margin: 0;
+				align-items: center;
+				justify-content: center;
+				flex-direction:  column;
+
+			}
+			#uploader {
+				-webkit-appearance: none;
+				appearance: none;
+				width: 50%;
+				margin-bottom:  10px;
+			}
+		</style>
+
+
+	</head>
+	 <body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="loggedin.html">Cancer Detection</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+           
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href=login.html>Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+		<h2 id=upcomplete hidden=true >Upload complete!</h2>
+		<progress value="0" max="100" id="uploader" >0% </progress>
+		<input type="file" value="upload" id="fileButton" />
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB63PjqQTlT4N_himY4-_TfGbJYS1B2BnY",
+        authDomain: "cancer-detection-76db3.firebaseapp.com",
+        databaseURL: "https://cancer-detection-76db3.firebaseio.com",
+        projectId: "cancer-detection-76db3",
+        storageBucket: "cancer-detection-76db3.appspot.com",
+        messagingSenderId: "568555358362"
+    };
+firebase.initializeApp(config);
+</script>
+<script>
+//document.getElementById("upcomplete").style.display = "none";
+
+//get elements
+var uploader=document.getElementById('uploader');
+var fileButton=document.getElementById('fileButton');
+
+//event listener
+
+fileButton.addEventListener('change', function(e) {
+
+//get file
+var file=e.target.files[0];
+
+//create storage ref
+var storageRef= firebase.storage().ref('papers/'+ file.name);
+
+var task=storageRef.put(file);
+
+
+	task.on('state_changed',
+	function progress(snapshot){
+		var percentage=(snapshot.bytesTransferred/snapshot.totalBytes)*100;
+		uploader.value=percentage;
+		
+		if (percentage==100) {
+			document.getElementById("upcomplete").style.display = "block";
+		}
+			},
+
+function(error) {
+
+  // A full list of error codes is available at
+  // https://firebase.google.com/docs/storage/web/handle-errors
+  switch (error.code) {
+    case 'storage/unauthorized':
+    alert('Please sign in');
+      // User doesn't have permission to access the object
+      break;
+
+    case 'storage/canceled':
+      // User canceled the upload
+      break;
+  }
+}
+);
+	
+
+	function complete() {
+		document.getElementById("upcomplete").style.display = "block";
+         
+     }
+
+	});
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

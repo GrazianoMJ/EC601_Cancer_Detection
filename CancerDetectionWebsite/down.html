@@ -1,0 +1,151 @@
+<html>
+	<head>
+		<meta charset= "utf-8">
+		<title> Cancer Detection</title>
+		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:100,300'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+    <link href="css/agency.min.css" rel="stylesheet">
+
+   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+
+		<style media="screen">
+			body {
+			
+				display: flex;
+				min-height: 100vh;
+				width: 100%
+				padding: 0;
+				margin: 0;
+				align-items: center;
+				justify-content: center;
+				flex-direction:  column;
+
+			}
+			#uploader {
+				-webkit-appearance: none;
+				appearance: none;
+				width: 50%;
+				margin-bottom:  10px;
+			}
+		</style>
+
+
+	</head>
+	 <body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="loggedin.html">Cancer Detection</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+           
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href=login.html>Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+		
+
+		<p id=downloadtxt> Enter File name </p>
+		<input class="mdl-textfield__input" style="display:inline;width:auto;" type="text" id="downtxt" name="downtxt" placeholder="filename"> </input>
+		 <button  class="mdl-button mdl-js-button mdl-button--raised" id="downfile" name="downfile">Download File</button>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB63PjqQTlT4N_himY4-_TfGbJYS1B2BnY",
+        authDomain: "cancer-detection-76db3.firebaseapp.com",
+        databaseURL: "https://cancer-detection-76db3.firebaseio.com",
+        projectId: "cancer-detection-76db3",
+        storageBucket: "cancer-detection-76db3.appspot.com",
+        messagingSenderId: "568555358362"
+    };
+firebase.initializeApp(config);
+</script>
+
+
+
+
+<script >
+var downloadbutton=document.getElementById('downfile');
+
+//event listener
+
+downloadbutton.addEventListener('click', function() {
+
+
+
+var fname = document.getElementById('downtxt').value;
+var storageRef= firebase.storage().ref();
+
+	// Create a reference with an initial file path and name
+// Create a reference to the file we want to download
+var starsRef = storageRef.child('papers/'+fname);
+
+// Get the download URL
+starsRef.getDownloadURL().then(function(url) {
+  // Insert url into an <img> tag to "download"
+
+         
+window.open(url);
+  /*var xhr = new XMLHttpRequest();
+  xhr.responseType = 'blob';
+  xhr.onload = function(event) {
+    var blob = xhr.response;
+  };
+  xhr.open('GET', url);
+  xhr.send();
+*/
+}).catch(function(error) {
+
+  // A full list of error codes is available at
+  // https://firebase.google.com/docs/storage/web/handle-errors
+  switch (error.code) {
+    case 'storage/object_not_found':
+      // File doesn't exist
+      alert('File does not exist');
+      break;
+
+    case 'storage/unauthorized':
+      // User doesn't have permission to access the object
+      alert('Please sign in');
+      break;
+
+  }
+});
+
+
+
+});
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
