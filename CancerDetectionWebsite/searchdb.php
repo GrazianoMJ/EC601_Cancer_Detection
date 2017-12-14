@@ -19,9 +19,9 @@ if (isset($_POST['submitted'])){
 // connect to the database
 //include('connect.php');
 DEFINE ('USER','root');
-DEFINE ('PSWD','cancerdetection');
-DEFINE('DB_HOST','cancerdetection.citobxwciwnc.us-east-1.rds.amazonaws.com');
-DEFINE('DB_NAME','cancerdetection');
+DEFINE ('PSWD','EC601');
+DEFINE('DB_HOST','192.168.1.231');
+DEFINE('DB_NAME','cancer_detection');
 
 $con = mysqli_connect(DB_HOST,USER,PSWD,DB_NAME);
 $category = $_POST['category'];
@@ -52,7 +52,7 @@ echo"</table>";
 ?>
 
 
-<!-- Code injected by live-server 
+<!-- Code injected by live-server
 <script type="text/javascript">
 	// <![CDATA[  <-- For SVG support
 	if ('WebSocket' in window) {
