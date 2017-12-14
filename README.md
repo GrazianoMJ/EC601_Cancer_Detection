@@ -1,8 +1,11 @@
 # EC601_Cancer_Detection
 
+
 Arjun
 Worked on the webpage for the project. Index.html is the homepage of the site. Only an user can upload/download text files. 
 
+=======
+>>>>>>> master
 Jingjun Wang:
 For the machine learning part: 
 - The preprocess file is to use nltk(natural language toolkit) to process the original text file, which is also known as clinical data, to get a cleaner version of text file. The object is to get exclude the influence of those unrelated words, such as "a, the", those common english words.
@@ -23,3 +26,4 @@ This folder contains all the work associated with the automation of the AWS Serv
 - A test code used to determine if our communication between our S3, Lambda, SQS Queue and EC2 Instance was working correctly.
 
 Currently work is being done to complete the communication between our EC2 Instance and our RDS Database (see the Database folder for code).
+
